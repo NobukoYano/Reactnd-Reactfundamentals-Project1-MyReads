@@ -39,7 +39,7 @@ class SearchBooks extends React.Component {
 
   render() {
     const { query } = this.state.query
-    const { shelfBooks, onUpdateBook } = this.props
+//    const { shelfBooks, onUpdateBook } = this.props
 
     return (
           <div className="search-books">

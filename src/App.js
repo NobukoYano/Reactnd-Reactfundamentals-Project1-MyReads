@@ -16,7 +16,7 @@ class BooksApp extends React.Component {
      */
   }
   //componentDidMount() {
-  getInitialState() {
+  componentDidMount() {
     BooksAPI.getAll()
       .then((books) => {
         this.setState({books: books})
@@ -43,7 +43,6 @@ class BooksApp extends React.Component {
          <SearchBooks
             shelfBooks={this.books}
             onUpdateBook={(book, shelf) => {
-              console.log('#####')
               this.updateBook(book, shelf)
               history.push('/')
             }}
@@ -59,17 +58,26 @@ class BooksApp extends React.Component {
                 <Bookshelf
                     title="Want to Read"
                     books={this.state.books.filter((book)=>book.shelf === 'wantToRead')}
-                    onUpdateBook={this.props.onUpdateBook}
+                    onUpdateBook={(book, shelf) => {
+                     this.updateBook(book, shelf)
+                     history.push('/')
+                    }}
                  />
                 <Bookshelf
                     title="Currently Reading"
                     books={this.state.books.filter((book)=>book.shelf === 'currentlyReading')}
-                    onUpdateBook={this.props.onUpdateBook}
+                    onUpdateBook={(book, shelf) => {
+                     this.updateBook(book, shelf)
+                     history.push('/')
+                    }}
                  />
                 <Bookshelf
                     title="Read"
                     books={this.state.books.filter((book)=>book.shelf === 'read')}
-                    onUpdateBook={this.props.onUpdateBook}
+                    onUpdateBook={(book, shelf) => {
+                     this.updateBook(book, shelf)
+                     history.push('/')
+                    }}
                  />
 
               </div>
