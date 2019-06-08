@@ -2,16 +2,9 @@ import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import ListBooks from './ListBooks'
 import { Link } from 'react-router-dom'
-//import PropTypes from 'prop-types'
 
 
 class SearchBooks extends React.Component {
-  /*
-  static propTypes = {
-    shelfBooks: PropTypes.array.isRequired,
-    onUpdateBook: PropTypes.func.isRequired,
-  }
-  */
   state = {
     query: '',
     searchedBooks:[]
@@ -33,8 +26,8 @@ class SearchBooks extends React.Component {
       .then((books) =>{
         this.setState(() =>({searchedBooks: books}))
       })
-    console.log('state searchedBooks', this.state.searchedBooks)
-    console.log('state query', this.state.query)    
+   // console.log('state searchedBooks', this.state.searchedBooks) //for Testing
+    //console.log('state query', this.state.query)  //for Testing   
   }
 
   render() {
@@ -66,7 +59,7 @@ class SearchBooks extends React.Component {
               {this.state.searchedBooks.length >= 0 && (
                	<ListBooks 
                    books={this.state.searchedBooks}
-                   shelfBooks={this.props.shelfBook}
+                   shelfBooks={this.props.shelfBooks}
                    onUpdateBook={this.props.onUpdateBook}/>
 			   )}
             </div>

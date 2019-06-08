@@ -2,8 +2,7 @@ import React from 'react'
 
 class ListBooks extends React.Component {
   render(){
-    const { books, shelfBooks, onUpdateBook } = this.props;
-    //console.log('shelfBooks', shelfBooks);  //for Testing
+    const { books, shelfBooks, onUpdateBook } = this.props
     return(
       <ol className="books-grid">
           {books.map((book) => (
@@ -16,9 +15,7 @@ class ListBooks extends React.Component {
                    backgroundImage: `url(${book.imageLinks.thumbnail})` }}
                  ></div>
 				<div className="book-shelf-changer">
-				  <select  
-						defaultValue={shelfBooks.find(item => item.id === book.id) !== undefined && shelfBooks.find(item => item.id === book.id).shelf }
-						onChange={(e) => onUpdateBook(book, e.target.value)}>
+				  <select  onChange={(e) => this.props.onUpdateBook(book, e.target.value)}>
 					<option value="move" disabled>Move to...</option>
 					<option value="currentlyReading">Currently Reading</option>
 					<option value="wantToRead">Want to Read</option>

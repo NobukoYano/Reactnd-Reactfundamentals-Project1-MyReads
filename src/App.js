@@ -13,15 +13,15 @@ class BooksApp extends React.Component {
      * we're on, use the URL in the browser's address bar. This will ensure that
      * users can use the browser's back and forward buttons to navigate between
      * pages, as well as provide a good URL they can bookmark and share.
+     ==> implemented with Router
      */
   }
-  //componentDidMount() {
   componentDidMount() {
     BooksAPI.getAll()
       .then((books) => {
         this.setState({books: books})
       })
-    console.log('books in bookshelf (Initial)', this.state.books);
+    //console.log('books in bookshelf (Initial)', this.state.books); //for Testing
   }
   updateBook = (book, shelf) => {
     console.log('updateBook:', book, shelf);
@@ -32,16 +32,15 @@ class BooksApp extends React.Component {
             this.setState({books: books})
          })
       })
-    console.log('books in bookshelf (updateBook)', this.state.books);
+    //console.log('books in bookshelf (updateBook)', this.state.books); // for Testing
   }
-
 
   render() {
     return (
       <div className="app">
        <Route path='/create' render={({ history })=>(
          <SearchBooks
-            shelfBooks={this.books}
+            shelfBooks={this.state.books}
             onUpdateBook={(book, shelf) => {
               this.updateBook(book, shelf)
               history.push('/')
@@ -60,7 +59,7 @@ class BooksApp extends React.Component {
                     books={this.state.books.filter((book)=>book.shelf === 'wantToRead')}
                     onUpdateBook={(book, shelf) => {
                      this.updateBook(book, shelf)
-                     history.push('/')
+                     //history.push('/')
                     }}
                  />
                 <Bookshelf
@@ -68,7 +67,7 @@ class BooksApp extends React.Component {
                     books={this.state.books.filter((book)=>book.shelf === 'currentlyReading')}
                     onUpdateBook={(book, shelf) => {
                      this.updateBook(book, shelf)
-                     history.push('/')
+                     //history.push('/')
                     }}
                  />
                 <Bookshelf
@@ -76,7 +75,7 @@ class BooksApp extends React.Component {
                     books={this.state.books.filter((book)=>book.shelf === 'read')}
                     onUpdateBook={(book, shelf) => {
                      this.updateBook(book, shelf)
-                     history.push('/')
+                     //history.push('/')
                     }}
                  />
 
