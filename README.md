@@ -20,12 +20,10 @@ To get started the application:
 │   └── index.html # DO NOT MODIFY
 └── src
     ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    <span style="color:blue">
-    ├── App.js # This is the root of your app. Static HTML is replaced to Bookshelf and SearchBooks component.
-    ├── Bookshelf.js # This is the Bookshelf component which shows 3 types of shelf(Want to Read, Currently Reading and Read)
-    ├── SearchBooks.js # This is the SearchBooks component which is used to show search result.
-    ├── ListBooks.js # This is the ListBooks component, which is used both from Bookshelf and SearchBooks component.
-    </span>
+    ├── **App.js # This is the root of your app. Static HTML is replaced to Bookshelf and SearchBooks component.**
+    ├── **Bookshelf.js # This is the Bookshelf component which shows 3 types of shelf(Want to Read, Currently Reading and Read)**
+    ├── **SearchBooks.js # This is the SearchBooks component which is used to show search result.**
+    ├── **ListBooks.js # This is the ListBooks component, which is used both from Bookshelf and SearchBooks component.**
     ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
     ├── icons # Helpful images for your app. Use at your discretion.
