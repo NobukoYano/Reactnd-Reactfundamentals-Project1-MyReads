@@ -10,33 +10,14 @@ To get started the application:
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
-## What You're Getting
+## What I customised or created
 ```bash
-├── README.md - This file.
-├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
-├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
-├── public
-│   ├── favicon.ico # React Icon, You may change if you wish.
-│   └── index.html # DO NOT MODIFY
 └── src
-    ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── **App.js** # This is the root of your app. Static HTML is replaced to Bookshelf and SearchBooks component.
-    ├── **Bookshelf.js** # This is the Bookshelf component which shows 3 types of shelf(Want to Read, Currently Reading and Read)
-    ├── **SearchBooks.js** # This is the SearchBooks component which is used to show search result.
-    ├── **ListBooks.js** # This is the ListBooks component, which is used both from Bookshelf and SearchBooks component.
-    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
-    ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
-    ├── icons # Helpful images for your app. Use at your discretion.
-    │   ├── add.svg
-    │   ├── arrow-back.svg
-    │   └── arrow-drop-down.svg
-    ├── index.css # Global styles. You probably won't need to change anything here.
-    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+    ├── App.js # This is the root of your app. Static HTML is replaced to Bookshelf and SearchBooks component.
+    ├── Bookshelf.js # This is the Bookshelf component which shows 3 types of shelf(Want to Read, Currently Reading and Read)
+    ├── SearchBooks.js # This is the SearchBooks component which is used to show search result.
+    ├── ListBooks.js # This is the ListBooks component, which is used both from Bookshelf and SearchBooks component.
 ```
-
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
-
-_not changed from here_
 
 ## Backend Server
 
