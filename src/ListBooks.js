@@ -1,8 +1,17 @@
 import React from 'react'
 
 class ListBooks extends React.Component {
-  render(){
-    const { books, shelfBooks, onUpdateBook } = this.props;
+  setShelf = (books, shelfBooks) => {
+    books.map((book)=>{
+      (shelfBooks.find(item => item.id === book.id) !== undefined) ?
+        (book.shelf = shelfBooks.find(item => item.id === book.id).shelf) :
+        (book.shelf = 'none')
+      return book;
+    })
+  }
+render(){
+    let { books, shelfBooks, onUpdateBook } = this.props;
+    this.setShelf(books, shelfBooks);
     //console.log('shelfBooks', shelfBooks);  //for Testing
     return(
       <ol className="books-grid">
@@ -13,11 +22,11 @@ class ListBooks extends React.Component {
 				<div 
                    className="book-cover" 
                    style={{ width: 128, height: 193, 
-                   backgroundImage: `url(${book.imageLinks.thumbnail})` }}
+                   backgroundImage: (book.imageLinks === undefined)? (''):(`url(${book.imageLinks.thumbnail})`) }}
                  ></div>
 				<div className="book-shelf-changer">
 				  <select  
-						defaultValue={shelfBooks.find(item => item.id === book.id) !== undefined && shelfBooks.find(item => item.id === book.id).shelf }
+						defaultValue={book.shelf}
 						onChange={(e) => onUpdateBook(book, e.target.value)}>
 					<option value="move" disabled>Move to...</option>
 					<option value="currentlyReading">Currently Reading</option>
@@ -28,7 +37,7 @@ class ListBooks extends React.Component {
 				</div>
 			  </div>
 			  <div className="book-title">{book.title}</div>
-			  <div className="book-authors">{book.authors.join(', ')}</div>
+			  <div className="book-authors">{(book.authors !== undefined) && (book.authors.join(', '))}</div>
 			</div>
 		</li>            
 		))}
@@ -38,3 +47,5 @@ class ListBooks extends React.Component {
 }
 
 export default ListBooks;
+
+//defaultValue={(book) =>{shelfBooks.find(item => item.id === book.id) } || 'none' }
