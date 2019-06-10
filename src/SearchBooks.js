@@ -57,14 +57,14 @@ class SearchBooks extends React.Component {
             </div>
             <div className="search-books-results"> 
               {this.state.searchedBooks.length >= 0 && (
-               	<ListBooks 
-                   books={this.state.searchedBooks}
-                   shelfBooks={this.props.shelfBooks}
-                   onUpdateBook={this.props.onUpdateBook}/>
-			   )}
+                <ListBooks 
+                    books={this.state.searchedBooks}
+                    shelfBooks={this.props.shelfBooks}
+                    onUpdateBook={this.props.onUpdateBook}/>
+               )}
             </div>
           </div>
-	)
+    )
   }
 }
 
