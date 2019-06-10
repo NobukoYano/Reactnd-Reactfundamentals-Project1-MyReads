@@ -2,12 +2,20 @@ import React from 'react'
 
 class ListBooks extends React.Component {
   setShelf = (books, shelfBooks) => {
+    books.forEach((book, index)=>{
+      (shelfBooks.find(item => item.id === book.id) ) ?
+        (books[index].shelf = shelfBooks.find(item => item.id === book.id).shelf) :
+        (books[index].shelf = 'none')
+    })
+/*
+  setShelf = (books, shelfBooks) => {
     books.map((book)=>{
       (shelfBooks.find(item => item.id === book.id) !== undefined) ?
         (book.shelf = shelfBooks.find(item => item.id === book.id).shelf) :
         (book.shelf = 'none')
       return book;
     })
+  */  
   }
 render(){
     let { books, shelfBooks, onUpdateBook } = this.props;
@@ -48,4 +56,4 @@ render(){
 
 export default ListBooks;
 
-//defaultValue={(book) =>{shelfBooks.find(item => item.id === book.id) } || 'none' }
+//defaultValue={(book) =>{return shelfBooks.find(item => item.id === book.id) } || 'none' }
